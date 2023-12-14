@@ -1,5 +1,7 @@
 using BookStore.DL.Interfaces;
 using BookStore.DL.Repository;
+using BookStorebl.Interfaces;
+using BookStorebl.Services;
 
 namespace BookStore
 {
@@ -16,6 +18,7 @@ namespace BookStore
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<IBookRepository, BookRepository>();
+            builder.Services.AddSingleton<IBookServices, BookService>();
 
 
             var app = builder.Build();
