@@ -1,16 +1,17 @@
 ﻿using BookStore.Models.models;
 using BookStorebl.Interfaces;
+using BookStorebl.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Controller : ControllerBase
+    public class BookController : ControllerBase
     {
         private readonly IBookServices _bookService;
 
-        public Controller(IBookServices bookService)
+        public BookController(IBookServices bookService)
         {
             _bookService = bookService;
         }
@@ -26,10 +27,15 @@ namespace BookStore.Controllers
         {
             return _bookService.GetBook(Id);
         }
-        [HttpGet("Add")]
+        [HttpPost("Add")]
         public void Add(Book book)
         {
             _bookService.AddBook(book);
+        }
+        [HttpDelete("Delete")]
+        public void Delete(Book book)
+        {
+            _bookService.RemoveBook(book);
         }
     }
 }

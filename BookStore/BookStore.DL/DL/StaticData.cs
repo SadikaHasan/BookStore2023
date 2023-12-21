@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace BookStore.DL.DL
 {
-    internal class StaticData
+    public class StaticData
     {
         public static List<Book> Books = new List<Book>()
         {
@@ -21,6 +21,25 @@ namespace BookStore.DL.DL
             {
                 Id = 3,
                 Title = "3 Book",
+            },
+
+        };
+        public static List<Author> Authors = new List<Author>()
+        {
+            new Author()
+            {
+                Id = 1,
+                Name = "1 Author",
+            },
+            new Author()
+            {
+                Id = 2,
+                Name = "2 Author",
+            },
+            new Author()
+            {
+                Id = 3,
+                Name = "3 Book",
             },
 
         };
