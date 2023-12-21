@@ -1,9 +1,5 @@
-﻿using BookStore.DL.Interfaces;
-using BookStore.DL.Repository;
-using BookStore.Models.models;
+﻿using BookStore.Models.models;
 using BookStorebl.Interfaces;
-using BookStorebl.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
@@ -18,20 +14,22 @@ namespace BookStore.Controllers
         {
             _bookService = bookService;
         }
+
         [HttpGet("GetAll")]
-        public List<Book> GetAll();
+        public List<Book> GetAll()
         {
-    return _bookService.GetAll();        
-}
-    [HttpGet("GetByAd")]
-    public Book GetById(int Id)
-    {
-        return _bookService.GetById(Id);
+            return _bookService.GetAllBooks();
+        }
+
+        [HttpGet("GetByAd")]
+        public Book GetById(int Id)
+        {
+            return _bookService.GetBook(Id);
+        }
+        [HttpGet("Add")]
+        public void Add(Book book)
+        {
+            _bookService.AddBook(book);
+        }
     }
-    [HttpGet("Add")]
-    public void Add(book)
-    {
-        return _bookService.Add(book);
-    }
-}
 }
