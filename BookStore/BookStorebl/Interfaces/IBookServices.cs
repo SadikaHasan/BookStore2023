@@ -1,4 +1,5 @@
 ﻿using BookStore.Models.models;
+using System.Reflection.Metadata.Ecma335;
 
 namespace BookStorebl.Interfaces
 {
@@ -17,5 +18,8 @@ namespace BookStorebl.Interfaces
 
 
         public List<Book> GetAllBooks();
+
+        public List<Book> GetAllBooksByAuthor(int authorId, DateTime afterDate);
+        
     }
 }

@@ -36,5 +36,13 @@ namespace BookStorebl.Services
         {
             _bookRepository.UpdateBook(book);
         }
+        public List<Book> GetAllBooksByAuthor(int authorId, DateTime afterDate)
+        {
+        var result = _bookRepository.GetAllBooksByAuthor(authorId);
+
+        return result
+            .Where(b => b.ReleaseDate>=afterDate)
+            .ToList();
     }
+}
 }

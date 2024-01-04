@@ -37,6 +37,11 @@ namespace BookStore.DL.Repository
             if (existBook == null) return;
             existBook.Title = book.Title;
         }
+            public List<Book> GetAllBooksByAuthor(int authorId)
+        {
+            return StaticData.Books
+                .Where(b => b.AuthorId == authorId).ToList();
+        }
     }
 }
 
