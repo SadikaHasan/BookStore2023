@@ -13,7 +13,7 @@ namespace BookStore.DL.Interfaces
         public void UpdateAuthor(Author author);
 
 
-        public Author GetAuthor(int id);
+        public Author? GetAuthor(int id);
 
 
         public List<Author> GetAllAuthors();
