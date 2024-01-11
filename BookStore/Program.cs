@@ -4,6 +4,8 @@ using BookStore.DL.Interfaces;
 using BookStore.DL.Repository;
 using BookStorebl.Interfaces;
 using BookStorebl.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 namespace BookStore
 {
@@ -26,7 +28,19 @@ namespace BookStore
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services
+                .AddFluentValidationAutoValidation();
+            builder.Services
+                .AddValidatorsFromAssemblyContaining(typeof(Program));
+
+
+            builder.Services.AddHealthChecks();
+
             var app = builder.Build();
+
+            app.MapHealthChecks("/healthz");
+
+            app.Run();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

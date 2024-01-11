@@ -1,5 +1,6 @@
 ﻿using BookStore.BookStore.Models.request;
 using BookStore.BookStore.Models.response;
+using BookStore.BookStore.Validator;
 using BookStore.BookStorebl.Interfaces;
 using BookStore.BookStorebl.Services;
 using BookStore.Models.models;
@@ -25,7 +26,12 @@ namespace BookStore.BookStore.Controllers
                 .GetAllBooksByAuthor(request);
 
         }
-       
-       
+        [HttpPost(template:"SomeEndPoint")]
+        public string GetSomeData([FromBody] SomeRequest request)
+        {
+            return ("1");
+
+        }
+
     }
 }
