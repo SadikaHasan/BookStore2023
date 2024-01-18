@@ -15,6 +15,15 @@ namespace BookStore.BookStorebl.Services
             _bookServices = bookServices;
         }
 
+        public int CheckBookCount(int input)
+        {
+            if (input < 0) return 0;
+
+            var result = _bookServices.GetAllBooks();
+
+            return result.Count + input;
+        }
+
         public SellAllBooksByAuthotResponse GetAllBooksByAuthor(SellAllBooksByAuthotRequest request)
         {
             return new SellAllBooksByAuthotResponse

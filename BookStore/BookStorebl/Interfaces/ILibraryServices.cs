@@ -7,5 +7,7 @@ namespace BookStore.BookStorebl.Interfaces
     public interface ILibraryServices
     {
         public SellAllBooksByAuthotResponse GetAllBooksByAuthor(SellAllBooksByAuthotRequest request);
+
+        int CheckBookCount(int input);
     }
 }
